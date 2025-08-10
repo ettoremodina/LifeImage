@@ -1,0 +1,5 @@
+# Summary: Runtime and dev dependencies.
+numpy>=1.26,<2.0
+Pillow>=10.0
+PyYAML>=6.0
+pytest>=8.0

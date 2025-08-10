@@ -1,0 +1,46 @@
+# Summary: Default configuration values for simulation parameters.
+simulation:
+  grid_size: 540  # applies to width and height; must match target image size loaded
+  ticks: 1000
+  master_seed: 1234
+  fitness_eval_interval: 20
+  max_organisms: 100000
+  sense_radius: 2
+  mutation_initial_sigma: 0.2
+  mutation_min_sigma: 0.01
+  mutation_decay_ticks: 1000
+  reproduction_threshold: 1000.0
+  reproduction_cost_mode: energy  # one of: energy, death, none
+  reproduction_energy_cost: 0.0
+  metabolism_cost: 0.0
+  move_cost: 0.0
+  stay_cost: 0.0
+  food_spawn_probability: 0.0  # per empty cell per tick
+  max_food: 2000
+  food_energy_min: 5.0
+  food_energy_max: 20.0
+  brain_hidden_layers: [32]
+  action_reproduce_index: 5
+  target_image: assets/target/sample.png
+  environment_gradients_enabled: true
+  environment_food_spawn_gradient: radial  # radial|none
+  environment_move_cost_gradient: none     # radial|none
+  render_interval: 10
+  render_output_dir: renders
+  fitness_energy_bonus_interval: 20
+  fitness_energy_bonus_scale: 10.0
+  log_interval: 10
+  log_output_csv: logs/metrics.csv
+  video_output_path: renders/video.mp4
+  video_fps: 8
+  cleanup_frames_after_video: true
+  video_mode: post   # post | live
+  write_frame_images: true  # if false and video_mode=post no video will be created unless manually triggered
+  live_video_output_path: renders/live_video.mp4
+  live_video_fps: 12
+  stochastic_actions: true
+  environment_gradients_enabled: true
+  environment_food_spawn_gradient: radial  # radial|none
+  environment_move_cost_gradient: none     # radial|none
+  render_interval: 10
+  render_output_dir: renders
