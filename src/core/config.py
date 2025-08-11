@@ -17,6 +17,7 @@ class SimulationConfig:
     mutation_initial_sigma: float
     mutation_min_sigma: float
     mutation_decay_ticks: int
+    initial_energy: float
     reproduction_threshold: float
     reproduction_cost_mode: str
     reproduction_energy_cost: float
@@ -47,6 +48,9 @@ class SimulationConfig:
     live_video_output_path: str
     live_video_fps: int
     stochastic_actions: bool
+    fitness_calculation_interval: int  # Tcf - ticks between fitness calculations
+    fitness_evaluation_interval: int  # Tef - ticks between fitness evaluations and selection
+    selection_num_species: int         # number of species for selection
 
 
 def load_config(path: str | Path) -> SimulationConfig:

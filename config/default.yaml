@@ -1,46 +1,46 @@
 # Summary: Default configuration values for simulation parameters.
 simulation:
-  grid_size: 540  # applies to width and height; must match target image size loaded
-  ticks: 1000
+  grid_size: 64  # applies to width and height; must match target image size loaded
+  ticks: 10000
   master_seed: 1234
   fitness_eval_interval: 20
-  max_organisms: 100000
   sense_radius: 2
-  mutation_initial_sigma: 0.2
-  mutation_min_sigma: 0.01
-  mutation_decay_ticks: 1000
-  reproduction_threshold: 1000.0
-  reproduction_cost_mode: energy  # one of: energy, death, none
-  reproduction_energy_cost: 0.0
-  metabolism_cost: 0.0
-  move_cost: 0.0
-  stay_cost: 0.0
-  food_spawn_probability: 0.0  # per empty cell per tick
-  max_food: 2000
-  food_energy_min: 5.0
-  food_energy_max: 20.0
-  brain_hidden_layers: [32]
+  max_organisms: 200  # Reduced for more competitive environment
+  max_food: 50      # Add some food to create foraging pressure
+  mutation_initial_sigma: 0.5   # Higher initial mutation for more diversity
+  mutation_min_sigma: 0.05      # Higher minimum to maintain variance
+  mutation_decay_ticks: 2000    # Slower decay to keep mutation longer
+  initial_energy: 1000.0         # Lower starting energy for more pressure
+  reproduction_threshold: 300.0 # Require significant energy for reproduction
+  reproduction_cost_mode: energy
+  reproduction_energy_cost: 150.0  # High reproduction cost
+  metabolism_cost: 2.0          # Constant energy drain forces movement
+  move_cost: 1.0                # Small cost for movement
+  stay_cost: 15.0               # Higher penalty for staying still
+  food_spawn_probability: 0.001  # Regular food spawning
+  food_energy_min: 20.0
+  food_energy_max: 50.0
+  brain_hidden_layers: [16]
   action_reproduce_index: 5
   target_image: assets/target/sample.png
   environment_gradients_enabled: true
-  environment_food_spawn_gradient: radial  # radial|none
-  environment_move_cost_gradient: none     # radial|none
-  render_interval: 10
+  render_interval: 1
   render_output_dir: renders
   fitness_energy_bonus_interval: 20
-  fitness_energy_bonus_scale: 10.0
-  log_interval: 10
+  fitness_energy_bonus_scale: 0.0
+  log_interval: 100
   log_output_csv: logs/metrics.csv
   video_output_path: renders/video.mp4
-  video_fps: 8
+  video_fps: 30
   cleanup_frames_after_video: true
-  video_mode: post   # post | live
+  video_mode: compact   # post | live | compact
   write_frame_images: true  # if false and video_mode=post no video will be created unless manually triggered
   live_video_output_path: renders/live_video.mp4
   live_video_fps: 12
   stochastic_actions: true
   environment_gradients_enabled: true
-  environment_food_spawn_gradient: radial  # radial|none
-  environment_move_cost_gradient: none     # radial|none
-  render_interval: 10
-  render_output_dir: renders
+  environment_food_spawn_gradient: radial  # radial|none - creates spatial pressure
+  environment_move_cost_gradient: radial     # radial|none - makes center expensive to occupy
+  fitness_calculation_interval: 10         # Tcf - ticks between fitness calculations
+  fitness_evaluation_interval: 200        # Tef - longer interval for species to develop patterns
+  selection_num_species: 2               # More species for higher diversity

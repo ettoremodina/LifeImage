@@ -16,6 +16,7 @@ class Grid:
         self.food = np.zeros((size, size), dtype=np.float32)
         self.spawn_gradient = None  # optional multiplier map (size,size)
         self.move_cost_gradient = None  # optional multiplier map (size,size)
+        self._seed_initial_food()
 
     def inside(self, x: int, y: int) -> bool:
         return 0 <= x < self.size and 0 <= y < self.size
@@ -79,3 +80,12 @@ class Grid:
                 nx, ny = x+dx, y+dy
                 if self.inside(nx, ny):
                     yield nx, ny
+
+    def _seed_initial_food(self):
+        """Place initial food on the grid at start."""
+        initial_food_count = min(self.max_food // 4, self.size * self.size // 20)  # 25% of max or 5% of grid
+        for _ in range(initial_food_count):
+            x = self.rng.randint(0, self.size - 1)
+            y = self.rng.randint(0, self.size - 1)
+            if self.food[y, x] == 0:  # empty cell
+                self.food[y, x] = self.rng.uniform(self.food_energy_min, self.food_energy_max)

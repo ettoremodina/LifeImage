@@ -10,7 +10,7 @@ Provide project context and coding guidelines that AI should follow when generat
 2. **Coding Guidelines**:
    - Follow best practices for code organization and modularity.
    - Write as little as possible comments.
-   - Ensure all new code is covered by unit tests, implement tests in a folder named `tests`.
+   <!-- - Ensure all new code is covered by unit tests, implement tests in a folder named `tests`. -->
    - Adhere to the project's coding style and conventions.
    - do not write unnecessary code, keep it simple and focused on the requirements.
    - prioritize readability and maintainability in your code.
@@ -21,3 +21,4 @@ Provide project context and coding guidelines that AI should follow when generat
    - always provide a requirements.txt file for Python projects and keep it updated with the necessary dependencies.
    - use init files
    - always parallelize tasks where appropriate to improve performance, simulations and neural network training.
+   - ask clarifying questions if the requirements are ambiguous or if you are in doubt of which approach to take.
